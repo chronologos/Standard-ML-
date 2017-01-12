@@ -1,7 +1,7 @@
 datatype foo = 
-  X of int
-| Y of string * bool
-| Z
+X of int
+             | Y of string * bool
+             | Z
 
 val someList = [1,2,3,4,5]
 
@@ -10,12 +10,12 @@ fun myFun (X x) = x
   | myFun Z = 0
 
 datatype 'a tree =
-  NODE of 'a * 'a tree * 'a tree
-| LEAF
+NODE of 'a * 'a tree * 'a tree
+                 | LEAF
 
 datatype 'a option = 
-  SOME of 'a
-| NONE
+SOME of 'a
+                   | NONE
 
 fun min (a, b) = if (a > b) then b else a
 
@@ -27,9 +27,9 @@ fun isPrime 1 = false
   | isPrime 2 = true
   | isPrime n = 
   let fun notDivisible (dividend, divisor) =
-    if (divisor >= dividend) then true
-    else
-      if (dividend mod divisor) = 0 then false else notDivisible(dividend, divisor + 1)
+  if (divisor >= dividend) then true
+  else
+    if (dividend mod divisor) = 0 then false else notDivisible(dividend, divisor + 1)
   in
     notDivisible (n, 2)
   end
