@@ -3,10 +3,10 @@ fun reduce(unit, opn, nil) = unit
   | reduce(unit, opn, h::t) = 
   opn(h, reduce(unit, opn, t))
 
-val l = [1,2,3];
-reduce(0, op +, l);
-reduce(1, op *, l);
-reduce(nil, op ::, l);
+val l = [1,2,3]
+reduce(0, op +, l)
+reduce(1, op *, l)
+reduce(nil, op ::, l)
 
 
 (*red is bound to a closure consisting of the code for the function together
@@ -30,5 +30,5 @@ fun curried_reduce (unit, opn) nil = unit
 
 
 (* unravelling the function *)
-val constantly = fn k => (fn a => k);
-fun constantly k a = k;
+val constantly = fn k => (fn a => k)
+fun constantly k a = k
