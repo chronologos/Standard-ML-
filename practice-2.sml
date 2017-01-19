@@ -71,6 +71,6 @@ val countAns = countFold (fn x => if x mod 2 = 0 then true else false) [1,2,3,4]
 
 (* mapPartial: (’a -> ’b option) -> ’a list -> ’b list *)
 fun mapPartial f [] = []
-  | mapPartial f (h::t) = foldr (fn (x, l) => if isSome (f x) then (x::l) else l) [] (h::t)
+  | mapPartial f (h::t) = foldr (fn (x, l) => if isSome (f x) then (f x::l) else l) [] (h::t)
 
 val mapPartialAns = mapPartial (fn x => if x mod 2 = 0 then SOME(x) else NONE) [1,2,3,4]
