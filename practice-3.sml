@@ -4,6 +4,11 @@
  * use "practice-3.sml" 
    functor is like parametrized structure *)
 
+fun removeNL "" = ""
+  | removeNL s = if String.isSuffix "\n" s 
+                 then String.substring(s, 0, (String.size s - 1)) 
+                 else s
+
 functor F(M: ORD_MAP where type Key.ord_key = string)
          (S: ORD_SET where type Key.ord_key = string) :>
 sig
